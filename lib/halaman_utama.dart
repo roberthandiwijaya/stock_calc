@@ -12,10 +12,22 @@ class _HalamanUtamaState extends State<HalamanUtama> {
       appBar: AppBar(
         title: Text('Stock Calculator'),
       ),
-      body: Column(
+      body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Testing'),
+          Column(
+            children: [
+              Container(
+                color: Color(0xFF1D1E33),
+                child: Text(
+                  'Test',
+                  style: TextStyle(
+                    fontSize: 40.0,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
