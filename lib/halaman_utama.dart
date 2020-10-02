@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
+import 'hitung_gpm.dart';
 
 class HalamanUtama extends StatefulWidget {
   @override
@@ -17,9 +19,7 @@ class _HalamanUtamaState extends State<HalamanUtama> {
           Expanded(
             child: GestureDetector(
               onTap: (){
-                setState(() {
-                  print('button 1 touched');
-                });
+                  Navigator.pushNamed(context, '/hitung_gpm');
               },
               child: Container(
                 color: Colors.blueAccent,
@@ -30,10 +30,7 @@ class _HalamanUtamaState extends State<HalamanUtama> {
                     Center(
                       child: Text(
                         'Hitung Gross Profit Margin (GPM)',
-                        style: TextStyle(
-                          fontSize: 25.0,
-                          fontWeight: FontWeight.w900,
-                        ),
+                        style: kHomeLabel,
                       ),
                     ),
                   ],
@@ -59,10 +56,7 @@ class _HalamanUtamaState extends State<HalamanUtama> {
                     Center(
                       child: Text(
                         'Hitung Return Of Equity (ROE)',
-                        style: TextStyle(
-                          fontSize: 25.0,
-                          fontWeight: FontWeight.w900,
-                        ),
+                        style: kHomeLabel,
                       ),
                     ),
                   ],
