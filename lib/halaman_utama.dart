@@ -2,12 +2,8 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 import 'hitung_gpm.dart';
 
-class HalamanUtama extends StatefulWidget {
-  @override
-  _HalamanUtamaState createState() => _HalamanUtamaState();
-}
 
-class _HalamanUtamaState extends State<HalamanUtama> {
+class HalamanUtama extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +15,7 @@ class _HalamanUtamaState extends State<HalamanUtama> {
           Expanded(
             child: GestureDetector(
               onTap: (){
-                  Navigator.pushNamed(context, '/hitung_gpm');
+                Navigator.pushNamed(context, '/hitung_gpm');
               },
               child: Container(
                 color: Colors.blueAccent,
