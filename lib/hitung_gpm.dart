@@ -7,21 +7,22 @@ class GPMPage extends StatefulWidget {
 }
 
 class _GPMPageState extends State<GPMPage> {
+  TextEditingController netRevenueController = TextEditingController();
+  TextEditingController costOfRevenueController = TextEditingController();
 
-  int netRevenue;
-
+  var displayResult = '';
 
   final myController = TextEditingController();
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     // Start listening to changes
     myController.addListener(_printLatestValue);
   }
 
   @override
-  void dispose(){
+  void dispose() {
     myController.dispose();
     super.dispose();
   }
@@ -41,12 +42,13 @@ class _GPMPageState extends State<GPMPage> {
           Container(
             child: TextField(
               keyboardType: TextInputType.number,
+              controller: netRevenueController,
               decoration: InputDecoration(
                 labelText: 'Net Revenue / Pendapatan Bersih',
                 labelStyle: TextStyle(
                     color: Colors.blueAccent.shade700, fontSize: 25.0),
                 border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               ),
               onChanged: (netRevenue) {
                 print('First Text Field: $netRevenue');
@@ -57,22 +59,39 @@ class _GPMPageState extends State<GPMPage> {
           SizedBox(
             height: 20.0,
           ),
-//          Container(
-//            child: TextField(
-//              controller: myController,
-//              keyboardType: TextInputType.number,
-//              decoration: InputDecoration(
-//                labelText: 'Cost of Revenue / HPP',
-//                labelStyle: TextStyle(
-//                    color: Colors.blueAccent.shade700, fontSize: 25.0),
-//                border:
-//                OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-//              ),
-//              onChanged: (costOfRevenue){
-//                print('Second Text Field: $costOfRevenue');
-//              },
-//            ),
-//          ),
+          Container(
+            child: TextField(
+              keyboardType: TextInputType.number,
+              controller: costOfRevenueController,
+              decoration: InputDecoration(
+                labelText: 'Cost of Revenue / HPP',
+                labelStyle: TextStyle(
+                    color: Colors.blueAccent.shade700, fontSize: 25.0),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              ),
+              onChanged: (costOfRevenue) {
+                print('Second Text Field: $costOfRevenue');
+              },
+            ),
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          RaisedButton(
+            onPressed: (){
+              setState(() {
+                print('Raised Button Clicked');
+              });
+            },
+            padding: EdgeInsets.all(20.0),
+            textColor: Colors.white,
+            color: Colors.blue,
+            child: Text(
+              'Gradient Button',
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
         ],
       ),
     );
