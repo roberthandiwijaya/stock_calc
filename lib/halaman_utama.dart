@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
-import 'hitung_gpm.dart';
-
 
 class HalamanUtama extends StatelessWidget {
   @override

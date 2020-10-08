@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'stock_brain.dart';
+import 'package:stock_calc/constants.dart';
 
 class GPMPage extends StatefulWidget {
   @override
@@ -61,23 +61,39 @@ class _GPMPageState extends State<GPMPage> {
             height: 20.0,
           ),
           RaisedButton(
-            onPressed: (){
+            onPressed: () {
               setState(() {
-                this.displayResult = calculateGPM();
+                this.displayResult = _calculateGPM();
               });
             },
             padding: EdgeInsets.all(20.0),
             textColor: Colors.white,
             color: Colors.blue,
             child: Text(
-              'Gradient Button',
+              'Calculate',
               style: TextStyle(fontSize: 20),
+            ),
+          ),
+          SizedBox(height: 25.0,),
+          Container(
+            child: Text(
+              this.displayResult,
+              style: kHomeLabel,
             ),
           ),
         ],
       ),
     );
   }
+
+  String _calculateGPM() {
+    double netRevenue = double.parse(netRevenueController.text);
+    double costOfRevenue = double.parse(costOfRevenueController.text);
+
+    double resultGPM = (netRevenue - costOfRevenue) / netRevenue;
+
+    String result = 'GPM is $resultGPM';
+
+    return result;
+  }
 }
-
-
