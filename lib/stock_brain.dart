@@ -1,15 +1,13 @@
-class StockBrain{
+import 'package:flutter/material.dart';
+import 'hitung_gpm.dart';
 
-    StockBrain({this.netRevenue, this.costOfRevenue});
+String calculateGPM(){
+  double netRevenue = double.parse(netRevenueController.text);
+  double costOfRevenue = double.parse(costOfRevenueController.text);
 
-    final int netRevenue;
-    final int costOfRevenue;
+  double resultGPM = (netRevenue - costOfRevenue) / netRevenue;
 
-    double _gpm;
+  String result = 'GPM is $resultGPM';
 
-    String hitungGPM(){
-      _gpm = (netRevenue - costOfRevenue) / netRevenue;
-      return _gpm.toStringAsFixed(2);
-    }
-
+  return result;
 }

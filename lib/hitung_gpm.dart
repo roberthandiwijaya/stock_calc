@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'stock_brain.dart';
 
 class GPMPage extends StatefulWidget {
   @override
@@ -11,25 +12,6 @@ class _GPMPageState extends State<GPMPage> {
   TextEditingController costOfRevenueController = TextEditingController();
 
   var displayResult = '';
-
-  final myController = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    // Start listening to changes
-    myController.addListener(_printLatestValue);
-  }
-
-  @override
-  void dispose() {
-    myController.dispose();
-    super.dispose();
-  }
-
-  _printLatestValue() {
-    print("Second text field: ${myController.text}");
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +63,7 @@ class _GPMPageState extends State<GPMPage> {
           RaisedButton(
             onPressed: (){
               setState(() {
-                print('Raised Button Clicked');
+                this.displayResult = calculateGPM();
               });
             },
             padding: EdgeInsets.all(20.0),
@@ -97,3 +79,5 @@ class _GPMPageState extends State<GPMPage> {
     );
   }
 }
+
+
