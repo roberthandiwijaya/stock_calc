@@ -60,19 +60,44 @@ class _GPMPageState extends State<GPMPage> {
           SizedBox(
             height: 20.0,
           ),
-          RaisedButton(
-            onPressed: () {
-              setState(() {
-                this.displayResult = _calculateGPM();
-              });
-            },
-            padding: EdgeInsets.all(20.0),
-            textColor: Colors.white,
-            color: Colors.blue,
-            child: Text(
-              'Calculate',
-              style: TextStyle(fontSize: 20),
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                child: RaisedButton(
+                  onPressed: () {
+                    setState(() {
+                      this.displayResult = _calculateGPM();
+                    });
+                  },
+                  padding: EdgeInsets.all(30.0),
+                  textColor: Colors.white,
+                  color: Colors.blue,
+                  child: Text(
+                    'Calculate',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
+              SizedBox(width: 40.0,),
+              Container(
+                child: RaisedButton(
+                  onPressed: () {
+                    setState(() {
+
+                    });
+                  },
+                  padding: EdgeInsets.all(30.0),
+                  textColor: Colors.white,
+                  color: Colors.blue,
+                  child: Text(
+                    'Reset',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
+
+            ],
           ),
           SizedBox(height: 25.0,),
           Container(
