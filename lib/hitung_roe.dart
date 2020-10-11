@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stock_calc/constants.dart';
 
-class GPMPage extends StatefulWidget {
+class ROEPage extends StatefulWidget {
   @override
-  _GPMPageState createState() => _GPMPageState();
+  _ROEPageState createState() => _ROEPageState();
 }
 
-class _GPMPageState extends State<GPMPage> {
-  TextEditingController netRevenueController = TextEditingController();
-  TextEditingController costOfRevenueController = TextEditingController();
+class _ROEPageState extends State<ROEPage> {
+  TextEditingController netProfitController = TextEditingController();
+  TextEditingController equityController = TextEditingController();
 
   var displayResult = '';
 
@@ -24,16 +24,15 @@ class _GPMPageState extends State<GPMPage> {
           Container(
             child: TextField(
               keyboardType: TextInputType.number,
-              controller: netRevenueController,
+              controller: netProfitController,
               decoration: InputDecoration(
-                labelText: 'Net Revenue / Pendapatan Bersih',
+                labelText: 'Net Profit / Pendapatan Bersih Setelah Pajak',
                 labelStyle: TextStyle(
                     color: Colors.blueAccent.shade700, fontSize: 25.0),
                 border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               ),
-              onChanged: (netRevenue) {
-              },
+              onChanged: (netProfit) {},
             ),
           ),
           SizedBox(
@@ -42,16 +41,15 @@ class _GPMPageState extends State<GPMPage> {
           Container(
             child: TextField(
               keyboardType: TextInputType.number,
-              controller: costOfRevenueController,
+              controller: equityController,
               decoration: InputDecoration(
-                labelText: 'Cost of Revenue / HPP',
+                labelText: 'Equity',
                 labelStyle: TextStyle(
                     color: Colors.blueAccent.shade700, fontSize: 25.0),
                 border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               ),
-              onChanged: (costOfRevenue) {
-              },
+              onChanged: (equity) {},
             ),
           ),
           SizedBox(
@@ -64,7 +62,7 @@ class _GPMPageState extends State<GPMPage> {
                 child: RaisedButton(
                   onPressed: () {
                     setState(() {
-                      this.displayResult = _calculateGPM();
+                      this.displayResult = _calculateROE();
                     });
                   },
                   padding: EdgeInsets.all(30.0),
@@ -93,6 +91,7 @@ class _GPMPageState extends State<GPMPage> {
                   ),
                 ),
               ),
+
             ],
           ),
           SizedBox(height: 25.0,),
@@ -107,20 +106,20 @@ class _GPMPageState extends State<GPMPage> {
     );
   }
 
-  String _calculateGPM() {
-    double netRevenue = double.parse(netRevenueController.text);
-    double costOfRevenue = double.parse(costOfRevenueController.text);
+  String _calculateROE() {
+    double netProfit = double.parse(netProfitController.text);
+    double equity = double.parse(equityController.text);
 
-    double resultGPM = (netRevenue - costOfRevenue) / netRevenue;
+    double resultROE = netProfit / equity;
 
-    String result = 'Gross Profit Margin is $resultGPM';
+    String result = 'Return of Equity is $resultROE';
 
     return result;
   }
 
-  void _reset(){
-    netRevenueController.text = '';
-    costOfRevenueController.text = '';
+  void _reset() {
+    netProfitController.text = '';
+    equityController.text = '';
     displayResult = '';
   }
 }

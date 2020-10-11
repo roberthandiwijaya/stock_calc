@@ -39,7 +39,7 @@ class HalamanUtama extends StatelessWidget {
           Expanded(
             child: GestureDetector(
               onTap: (){
-                print('button 2 touched');
+                Navigator.pushNamed(context, '/hitung_roe');
               },
               child: Container(
                 color: Colors.blueAccent,
