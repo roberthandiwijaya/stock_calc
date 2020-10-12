@@ -22,6 +22,7 @@ class _GPMPageState extends State<GPMPage> {
       body: Column(
         children: <Widget>[
           Container(
+            margin: EdgeInsets.only(top: 15.0),
             child: TextField(
               keyboardType: TextInputType.number,
               controller: netRevenueController,

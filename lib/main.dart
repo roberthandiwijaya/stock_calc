@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stock_calc/hitung_gpm.dart';
 import 'halaman_utama.dart';
 import 'hitung_gpm.dart';
+import 'hitung_roe.dart';
 
 void main() {
   runApp(StockCalc());
@@ -18,6 +19,7 @@ class StockCalc extends StatelessWidget {
       routes: {
         '/': (context) => HalamanUtama(),
         '/hitung_gpm': (context) => GPMPage(),
+        '/hitung_roe': (context) => ROEPage(),
       },
     );
   }
