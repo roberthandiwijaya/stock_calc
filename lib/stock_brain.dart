@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
-class TopTextField extends StatelessWidget {
-  // const TopTextField({
-  //   Key key,
-  //   @required this.netRevenueController,
-  // }) : super(key: key);
+class ReusableTextField extends StatelessWidget {
 
-  TopTextField({@required this.netRevenueController});
+  ReusableTextField({@required this.controller, this.labelTextField, this.onChangedData});
 
-  final TextEditingController netRevenueController;
+  final TextEditingController controller;
+  final String labelTextField;
+  final Function onChangedData;
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +14,15 @@ class TopTextField extends StatelessWidget {
       margin: EdgeInsets.only(top: 15.0),
       child: TextField(
         keyboardType: TextInputType.number,
-        controller: netRevenueController,
+        controller: controller,
         decoration: InputDecoration(
-          labelText: 'Net Revenue / Pendapatan Bersih',
+          labelText: labelTextField,
           labelStyle: TextStyle(
               color: Colors.blueAccent.shade700, fontSize: 25.0),
           border:
           OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
         ),
-        onChanged: (netRevenue) {
-        },
+        onChanged: onChangedData,
       ),
     );
   }

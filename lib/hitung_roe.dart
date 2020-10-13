@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stock_calc/constants.dart';
+import 'package:stock_calc/stock_brain.dart';
 
 class ROEPage extends StatefulWidget {
   @override
@@ -17,41 +18,24 @@ class _ROEPageState extends State<ROEPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Stock Calculator'),
+        title: Text('Hitung Return Of Equity'),
       ),
       body: Column(
         children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(top:15.0),
-            child: TextField(
-              keyboardType: TextInputType.number,
-              controller: netProfitController,
-              decoration: InputDecoration(
-                labelText: 'Net Profit / Pendapatan Bersih Setelah Pajak',
-                labelStyle: TextStyle(
-                    color: Colors.blueAccent.shade700, fontSize: 25.0),
-                border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-              ),
-              onChanged: (netProfit) {},
-            ),
+          ReusableTextField(
+            controller: netProfitController,
+            labelTextField: 'Net Profit / Pendapatan Bersih Setelah Pajak',
+            onChangedData: (netProfit){
+            },
           ),
           SizedBox(
-            height: 20.0,
+            height: 10.0,
           ),
-          Container(
-            child: TextField(
-              keyboardType: TextInputType.number,
-              controller: equityController,
-              decoration: InputDecoration(
-                labelText: 'Equity',
-                labelStyle: TextStyle(
-                    color: Colors.blueAccent.shade700, fontSize: 25.0),
-                border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-              ),
-              onChanged: (equity) {},
-            ),
+          ReusableTextField(
+            controller: equityController,
+            labelTextField: 'Equity',
+            onChangedData: (profit){
+            },
           ),
           SizedBox(
             height: 20.0,
@@ -95,7 +79,7 @@ class _ROEPageState extends State<ROEPage> {
 
             ],
           ),
-          SizedBox(height: 25.0,),
+          SizedBox(height: 20.0,),
           Container(
             child: Text(
               this.displayResult,

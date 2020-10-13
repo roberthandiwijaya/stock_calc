@@ -18,28 +18,24 @@ class _GPMPageState extends State<GPMPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Stock Calculator'),
+        title: Text('Hitung Gross Profit Margin'),
       ),
       body: Column(
         children: <Widget>[
-          TopTextField(netRevenueController: netRevenueController),
-          SizedBox(
-            height: 20.0,
+          ReusableTextField(
+            controller: netRevenueController,
+            labelTextField: 'Net Revenue / Pendapatan Bersih',
+            onChangedData: (netRevenue){
+            },
           ),
-          Container(
-            child: TextField(
-              keyboardType: TextInputType.number,
-              controller: costOfRevenueController,
-              decoration: InputDecoration(
-                labelText: 'Cost of Revenue / HPP',
-                labelStyle: TextStyle(
-                    color: Colors.blueAccent.shade700, fontSize: 25.0),
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-              ),
-              onChanged: (costOfRevenue) {
-              },
-            ),
+          SizedBox(
+            height: 10.0,
+          ),
+          ReusableTextField(
+            controller: costOfRevenueController,
+            labelTextField: 'Cost of Revenue / HPP',
+            onChangedData: (costOfRevenue){
+            },
           ),
           SizedBox(
             height: 20.0,
@@ -63,7 +59,9 @@ class _GPMPageState extends State<GPMPage> {
                   ),
                 ),
               ),
-              SizedBox(width: 40.0,),
+              SizedBox(
+                width: 20.0,
+              ),
               Container(
                 child: RaisedButton(
                   onPressed: () {
@@ -82,7 +80,9 @@ class _GPMPageState extends State<GPMPage> {
               ),
             ],
           ),
-          SizedBox(height: 25.0,),
+          SizedBox(
+            height: 25.0,
+          ),
           Container(
             child: Text(
               this.displayResult,
@@ -105,10 +105,9 @@ class _GPMPageState extends State<GPMPage> {
     return result;
   }
 
-  void _reset(){
+  void _reset() {
     netRevenueController.text = '';
     costOfRevenueController.text = '';
     displayResult = '';
   }
 }
-
