@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stock_calc/constants.dart';
+import 'stock_brain.dart';
 
 class GPMPage extends StatefulWidget {
   @override
@@ -21,22 +22,7 @@ class _GPMPageState extends State<GPMPage> {
       ),
       body: Column(
         children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(top: 15.0),
-            child: TextField(
-              keyboardType: TextInputType.number,
-              controller: netRevenueController,
-              decoration: InputDecoration(
-                labelText: 'Net Revenue / Pendapatan Bersih',
-                labelStyle: TextStyle(
-                    color: Colors.blueAccent.shade700, fontSize: 25.0),
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-              ),
-              onChanged: (netRevenue) {
-              },
-            ),
-          ),
+          TopTextField(netRevenueController: netRevenueController),
           SizedBox(
             height: 20.0,
           ),
@@ -125,3 +111,4 @@ class _GPMPageState extends State<GPMPage> {
     displayResult = '';
   }
 }
+
