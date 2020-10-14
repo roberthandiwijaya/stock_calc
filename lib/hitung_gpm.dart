@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stock_calc/constants.dart';
+import 'reusable_textfield.dart';
 import 'stock_brain.dart';
 
 class GPMPage extends StatefulWidget {

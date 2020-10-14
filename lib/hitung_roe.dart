@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stock_calc/constants.dart';
-import 'package:stock_calc/stock_brain.dart';
+import 'package:stock_calc/reusable_textfield.dart';
 
 class ROEPage extends StatefulWidget {
   @override
