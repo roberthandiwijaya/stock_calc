@@ -1,9 +1,9 @@
 // import 'package:flutter/material.dart';
 // import 'hitung_gpm.dart';
 //
-// class StockCalculator{
+// class StockBrain{
 //
-//   StockCalculator({this.netProfitController, this.equityController, this.displayResult});
+//   StockBrain({this.netProfitController, this.equityController, this.displayResult});
 //
 //   final int netProfitController;
 //   final int equityController;
@@ -11,8 +11,8 @@
 //
 //
 //   void reset() {
-//     netProfitController.text = '';
-//     equityController.text = '';
+//     netRevenueController = '';
+//     costOfRevenueController.text = '';
 //     displayResult = '';
 //   }
 // }
